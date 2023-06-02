@@ -1,0 +1,110 @@
+/*
+      site.h
+
+    Loads HTML content dynamically and adds data to it.
+
+      Copyright 2022 globment.de
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is furnished
+    to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+    FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+    COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+
+
+#define FILE_INDEX "/index.html"
+#define FILE_DOCUMENTS "/documents.html"
+#define FILE_PUB "/documents/index.html"
+
+#define DOCUMENT_DIR  "/documents/"
+
+String sidebar_title = "";
+String section_title = "";
+String article_id = "";
+String title = "";
+String favicon = "";
+String css_path = "";
+String js_path = "";
+
+bool isIndex = true;
+
+String header_html = "<DOCTYPE! html>\n " \
+                     " <html lang=\"en\">\n " \
+                     " <head>      \n" \
+                     "<meta charset=\"utf-8\"> \n" \
+                     " <title>esp82-NAS -  %s</title> \n" \
+                     "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\" />\n " \
+                     "<link rel=\"icon\" href=\"%s\" type=\"image/x-icon\" />\n" \
+                     "<link rel=\"shortcut icon\" href=\"%s\" type=\"image/x-icon\" />\n" \
+                     "<script src=\"%s\"></script>\n" \
+                     "<script language=\"javascript\">\n" \
+                     "httpGetDocs(" \
+                     ((isIndex) ? "\"docs?\"": "\"../docs?\"") \
+                     ", function(result) {\n" \
+                     "document.getElementById(\"dashboard-side\").innerHTML = \"Documents <br>\" + result;\n" \
+                     "})  </script>\n";
+
+String body_html = "</head><body> <header> \n" \
+                   " <img src=\"img/logo.png\"> \n" \
+                   " </header>\n" \
+                   "  <nav> \n" \
+                   "   <ul> \n" \
+                   " <li><a href=\"index.html\">Dashboard</a></li> \n" \
+                   " <li><a href=\"documents.html\">Documents</a></li> \n" \
+                   " <li><a href=\"\">Settings</a></li>  \n" \
+                   " <li><a href=\"about.html\">About</a></li> \n" \
+                   " </ul> \n" \
+                   "</nav> \n" \
+                   "<section>%s\n<article id=\"%s\">\n";
+
+String body_pub_html = "<body> <header> \n" \
+                       " <img src=\"../img/logo.png\"> \n" \
+                       " </header>\n" \
+                       "<section> \n" \
+                       "Public <article id=\"public-list\">\n";
+
+String sidebar_html = "</section>\n" \
+                      "<aside id=\"dashboard-side\">" \
+                      "%s (<a href=\"/documents/\">public</a>)\n<br><br>\n";
+
+String footer_pub_html = "</article></section>\n" \
+                         " <footer>\n" \
+                         "Copyright © <script>document.write(new Date().getFullYear()) </script> globment.de.  All rights reserved. &nbsp; \n" \
+                         "</footer > \n" \
+                         "</body> \n" \
+                         "</html > ";
+
+String footer_html = "</aside>\n" \
+                     " <footer>\n" \
+                     "Copyright © <script>document.write(new Date().getFullYear()) </script> globment.de.  All rights reserved. &nbsp; \n" \
+                     "</footer > \n" \
+                     "</body> \n" \
+                     "</html > ";
+
+
+String generateIndexHTML();
+String generatePubHTML();
+String IpAddrToString(const IPAddress & ipAddress);
+String printDirToHTML(bool options);
+void setupFiles();
+bool setupSysFile(String fileName, String content);
+void reloadIndex();
+void reloadPub();
+void startSiteInit();
+
+FSInfo fs_info;
+
+

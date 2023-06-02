@@ -1,0 +1,119 @@
+*
+{
+  font-size: 16px;
+  font-weight: 300;
+  box-sizing: border-box;
+  font-family: 'Metrophobic', Arial, serif; font-weight: 400;
+}
+
+body
+{
+  background-color: #e0dbdb;
+  color: black;
+  padding: 50px;
+}
+
+
+header,
+nav,
+section,
+aside,
+footer
+{
+  box-shadow:4px 4px rgb(114, 111, 111);
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 50px;
+}
+
+header,
+nav,
+footer
+{
+  width: 100%;
+  padding: 50px;
+}
+
+header
+{
+  margin-bottom: 50px;
+}
+
+
+
+h1
+{
+  margin: 0;
+}
+
+nav,
+aside
+{
+  width: 25%;
+}
+
+section
+{
+  float: left;
+  width: calc(50% - 100px);
+  margin: 0 50px 50px 50px;
+}
+
+section.public 
+{
+  float: none;
+  width: 80%;
+  margin: 0 0 50px 0;
+}
+
+section header,
+section article,
+section footer
+{
+  width: 100%;
+  background-color: #bebebe;
+  box-shadow: 2px 2px rgb(114, 111, 111);;
+  border-radius: 5px;
+  margin: 0;
+  padding: 50px;
+}
+
+section article
+{
+  margin: 25px 0;
+}
+
+nav
+{
+  float: left;
+}
+
+aside
+{
+  float: right;
+}
+
+nav ul
+{
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+nav li
+{
+  margin: 0 0 0 50px;
+  width: 100px;
+}
+
+
+
+nav li:first-child
+{
+  margin-left: 0;
+}
+
+footer
+{
+  clear: both;
+}

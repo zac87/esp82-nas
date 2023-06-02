@@ -1,0 +1,48 @@
+﻿<DOCTYPE! html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>esp82-NAS - Documents</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+
+  <script src="js/nn.js"></script>
+  <script language="javascript">
+    httpGet("docs", "?fn=true", function(result) {
+      document.getElementById("documents-list").innerHTML = result;
+    })
+  </script>
+</head>
+<body>
+  <header>
+    <img src="img/logo.png">
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Dashboard</a></li>
+      <li><a href="documents.html">Documents</a></li>
+      <li><a href="">Settings</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+  <section>
+    Documents
+    <article id="documents-list"></article>
+	<p>max file size = 200 KiB</p>
+    <form method="post" enctype="multipart/form-data" action="/upload" onsubmit="return validateUpload()">
+      <input type="file" name="uploadFileName" id="uploadFileName">
+      <input class="button" type="submit" value="Upload">
+   </form>
+   <form method="post" action="/deleteall" onsubmit="return validateDeleteAll()">
+     <input class="button" type="submit" value="Delete All Files">
+   </form>
+  </section>
+  <aside id="documents-history">
+    esp82-NAS <a href="/documents/">public</a>
+  </aside>
+
+
+  <footer>
+    Copyright © <script>document.write(new Date().getFullYear())</script> globment.de.  All rights reserved. &nbsp;
+  </footer>
+</body>
+</html>

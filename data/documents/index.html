@@ -1,0 +1,27 @@
+<DOCTYPE! html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>esp82-NAS - Public</title>
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+  <script src="../js/nn.js"></script>
+  <script language="javascript">
+   httpGet("../docs", "?fn=false", function(result) {
+     document.getElementById("public-list").innerHTML = result;
+   })
+ </script>
+</head>
+<body>
+  <header>
+    <img src="../img/logo.png">
+  </header>
+  <section class="public">
+    Public 
+    <article id="public-list">
+   </article>
+  </section>
+  <footer>
+    Copyright © <script>document.write(new Date().getFullYear())</script> globment.de.  All rights reserved. &nbsp;
+  </footer>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<DOCTYPE! html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>esp82-NAS - Setup</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script language="javascript">
+      function setupComplete() {
+        var password = document.getElementById("password").value;
+        var repassword = document.getElementById("repassword").value;
+        var ssid = document.getElementById("ssid").value;
+        var wifipwd = document.getElementById("wifipassword").value;
+
+        if(password != repassword) {
+          alert("Passwords don't match.");
+          return false;
+        }
+
+        if(password == "" || repassword == "" || ssid == "" || wifipwd == "") {
+          alert("Please check your form entries.");
+          return false;
+        }
+        
+        return true;
+      }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="img/logo.png">
+  </header>
+  <nav>
+    <ul>
+      <li><a href="setup-about.html">About</a></li>
+    </ul>
+  </nav>
+  <section>
+
+    <form method="post" action="/setup" onsubmit="return setupComplete()">
+      <p>Choose a password to login to your esp82-NAS dashboard.</p>
+      <p>Username : <i>esp82nas</i></p>
+      <p>Password :</p><input type="password" id="password" name="password">
+      <br>
+      <p>Retype Password :</p><input type="password" id="repassword" name="repassword">
+      <p>Configure your WiFi credentials.</p>
+      <p>SSID :</p><input type="input" id="ssid" name="ssid">
+      <br>
+      <p>WiFI Password :</p><input type="password" id="wifipassword" name="wifipassword">
+      <input class="button" type="submit" value="next">
+    </form>
+  </section>
+  <aside id="setup-side">
+    <script>document.getElementById("setup-side").innerHTML += '<object type="text/html" width="100%" data="status.txt"></object>';</script>
+    </aside>
+  <footer>
+    Copyright © <script>document.write(new Date().getFullYear())</script> globment.de.  All rights reserved. &nbsp;
+  </footer>
+</body>
+</html>

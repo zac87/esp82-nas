@@ -1,0 +1,40 @@
+<DOCTYPE! html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>esp82-NAS - Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="js/nn.js"></script>
+   <script language="javascript">
+    httpGet("docs", "?fn=false", function(result) {
+      document.getElementById("dashboard-side").innerHTML = "Documents <br>" + result;
+    });
+	httpGet("info", "", function(result) {
+      document.getElementById("dashboard-info").innerHTML = "System <br>" + result;
+    })
+  </script>
+</head>
+<body>
+  <header>
+    <img src="img/logo.png"> 
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Dashboard</a></li>
+      <li><a href="documents.html">Documents</a></li>
+      <li><a href="">Settings</a></li>
+      <li><a href="about.html">About</a></li>
+	  <li><a href="http://log:out@esp82nas">Logout</a></li>
+    </ul>
+  </nav>
+  <section>
+    esp82-NAS Status
+    <article id="dashboard-info"></article>
+  </section>
+  <aside id="dashboard-side">
+   </aside>
+  <footer>
+    Copyright © <script>document.write(new Date().getFullYear())</script> globment.de.  All rights reserved. &nbsp;
+  </footer>
+</body>
+</html>

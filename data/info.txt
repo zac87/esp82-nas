@@ -1,0 +1,1 @@
+NanoNode is embedded file server for small sized files up to 200 KiB.
