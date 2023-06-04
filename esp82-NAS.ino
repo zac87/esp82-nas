@@ -77,8 +77,8 @@
 #define WIFI_DT "/sys/wk.key"
 #define SYS_PW "/sys/ap.key"
 
-const char* ssid = "FRITZ!Box 7560 SV";
-const char* password = "Golf902906!";
+const char* ssid = "";
+const char* password = "";
 
 const char* apssid = "esp8266nas-AP";
 const char* appassword = "esp8266nas";
